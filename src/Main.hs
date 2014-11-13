@@ -1,5 +1,5 @@
 module Main where
-import LispVal (LispVal)
+import LispVal (LispVal(..))
 import System.Environment
 import Text.ParserCombinators.Parsec hiding (spaces)
 import Control.Monad

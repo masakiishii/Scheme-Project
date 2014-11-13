@@ -1,4 +1,4 @@
-module LispVal (LispVal) where
+module LispVal (LispVal(..)) where
 
 data LispVal = Atom String
      | List [LispVal]
@@ -6,3 +6,4 @@ data LispVal = Atom String
      | Number Integer
      | String String
      | Bool Bool
+
