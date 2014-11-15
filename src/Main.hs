@@ -11,12 +11,12 @@ import Control.Monad
 
 
 parseList::Parser LispVal
-parseList = liftM List $ sepBy parseExpr spaces
+parseList = liftM List $ sepBy parseExpr Symbol.spaces
 
 parseDottedList::Parser LispVal
 parseDottedList = do
-  head <- endBy parseExpr spaces
-  tail <- char '.' >> spaces >> parseExpr
+  head <- endBy parseExpr Symbol.spaces
+  tail <- char '.' >> Symbol.spaces >> parseExpr
   return $ DottedList head tail
 
 parseQuated::Parser LispVal
@@ -55,8 +55,6 @@ parseExpr = parseAtom
                  return x
 
 
-spaces::Parser()
-spaces = skipMany1 space
 
 
 readExpr::String -> String
