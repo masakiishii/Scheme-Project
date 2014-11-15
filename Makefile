@@ -13,11 +13,13 @@ HCFLAGS=$(PARSEC) $(MAKEFLAGS) $(INTERFACEDIR) interface/ $(BUILDDIR) build/ -i$
 
 OBJS=build/Main.o \
 	build/LispVal.o \
-	build/ShowVal.o
+	build/ShowVal.o \
+	build/Symbol.o
 
 INTERFACE=interface/Main.hi \
 	interface/LispVal.hi \
-	interface/ShowVal.hi
+	interface/ShowVal.hi \
+	interface/Symbol.hi
 
 SRC=src/Main.hs
 

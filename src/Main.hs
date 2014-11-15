@@ -1,6 +1,10 @@
 module Main where
+
 import LispVal (LispVal(..))
 import ShowVal
+import Symbol
+
+
 import System.Environment
 import Text.ParserCombinators.Parsec hiding (spaces)
 import Control.Monad
@@ -54,8 +58,6 @@ parseExpr = parseAtom
 spaces::Parser()
 spaces = skipMany1 space
 
-symbol :: Parser Char
-symbol = oneOf "!#$%&|*+-/:<=>?@^_~"
 
 readExpr::String -> String
 readExpr input = case parse parseExpr "lisp" input of
