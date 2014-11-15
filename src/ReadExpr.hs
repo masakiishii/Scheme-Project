@@ -1,9 +1,10 @@
 module ReadExpr where
 
 import Parse
+import LispVal
 import Text.ParserCombinators.Parsec hiding (spaces)
 
-readExpr::String -> String
+readExpr::String -> LispVal
 readExpr input = case parse parseExpr "lisp" input of
-         Left err -> "No match " ++ show err
-         Right val -> "found value " ++ show val
+         Left err -> String $ "No match " ++ show err
+         Right val -> val

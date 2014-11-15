@@ -10,7 +10,7 @@ import Control.Monad
 
 
 parseList::Parser LispVal
-parseList = liftM List $ sepBy parseExpr Symbol.spaces
+parseList = sepBy parseExpr Symbol.spaces >>= return . List
 
 parseDottedList::Parser LispVal
 parseDottedList = do
@@ -18,12 +18,11 @@ parseDottedList = do
   tail <- char '.' >> Symbol.spaces >> parseExpr
   return $ DottedList head tail
 
-parseQuated::Parser LispVal
-parseQuated = do
+parseQuoted::Parser LispVal
+parseQuoted = do
   char '\''
   x <- parseExpr
-  return $ List [Atom "quate", x]
-
+  return $ List [Atom "quote", x]
 
 parseString::Parser LispVal
 parseString = do char '"'
@@ -41,13 +40,13 @@ parseAtom = do first <- letter <|> symbol
                    _    -> Atom atom
 
 parseNumber::Parser LispVal
-parseNumber = liftM (Number . read) $ many1 digit
+parseNumber = many1 digit >>= return . Number . read
 
 parseExpr::Parser LispVal
 parseExpr = parseAtom
           <|> parseString
           <|> parseNumber
-          <|> parseQuated
+          <|> parseQuoted
           <|> do char '('
                  x <- try parseList <|> parseDottedList
                  char ')'

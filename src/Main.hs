@@ -1,9 +1,9 @@
 module Main where
 
 import ReadExpr
+import Eval
 import System.Environment
 
+
 main::IO()
-main = do
-  args <- getArgs
-  putStrLn(readExpr (args !! 0))
+main = getArgs >>= print . eval . readExpr . head
