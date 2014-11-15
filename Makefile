@@ -12,10 +12,12 @@ TARGETDIR=./src
 HCFLAGS=$(PARSEC) $(MAKEFLAGS) $(INTERFACEDIR) interface/ $(BUILDDIR) build/ -i$(TARGETDIR)
 
 OBJS=build/Main.o \
-	build/LispVal.o
+	build/LispVal.o \
+	build/ShowVal.o
 
 INTERFACE=interface/Main.hi \
-	interface/LispVal.hi
+	interface/LispVal.hi \
+	interface/ShowVal.hi
 
 SRC=src/Main.hs
 
