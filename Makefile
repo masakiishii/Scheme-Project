@@ -15,13 +15,15 @@ OBJS=build/Main.o \
 	build/LispVal.o \
 	build/ShowVal.o \
 	build/Symbol.o \
-	build/Parse.o
+	build/Parse.o \
+	build/ReadExpr.o
 
 INTERFACE=interface/Main.hi \
 	interface/LispVal.hi \
 	interface/ShowVal.hi \
 	interface/Symbol.hi \
-	interface/Parse.hi
+	interface/Parse.hi \
+	interface/ReadExpr.hi
 
 SRC=src/Main.hs
 
