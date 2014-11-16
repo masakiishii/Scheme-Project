@@ -17,7 +17,9 @@ OBJS=build/Main.o \
 	build/Symbol.o \
 	build/Parse.o \
 	build/ReadExpr.o \
-	build/Eval.o
+	build/Eval.o \
+	build/Apply.o \
+	build/Primitives.o
 
 INTERFACE=interface/Main.hi \
 	interface/LispVal.hi \
@@ -25,7 +27,9 @@ INTERFACE=interface/Main.hi \
 	interface/Symbol.hi \
 	interface/Parse.hi \
 	interface/ReadExpr.hi \
-	interface/Eval.hi
+	interface/Eval.hi \
+	interface/Apply.hi \
+	interface/Primitives.hi
 
 SRC=src/Main.hs
 
